@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">              
+    <title>
+        Seleccion proyectos
+    </title>
+</head> 
+<body>     
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>          
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.bundle.js"></script>   
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>                   
+    <h1> Seleccion proyectos </h1>
+             
+    <section> 
+        
+        <h1> empresa 1 </h1>
+        <table class="table table-bordered panel-body">
+            <thead class="bg-primary text-white">
+                <tr>
+                    <th> puesto </th>
+                    <th> Nombre proyecto </th>
+                    <th>Puntaje </th>
+                </tr>
+            </thead>
+            <tbody id="appempresa1">
+                <tr v-for="(todo,index) in todos">
+                    <td> {{index}}</td>
+                    <td> {{ todo.nameproyect}} </td>
+                    <td> {{ todo.pointForDraft}} </td>
+                </tr>
+            </tbody>  
+        </table>
+
+        <script>
+            new Vue({
+                el: "#appempresa1",
+                data: {
+                    todos: [{"nameproyect":"Levantamientos Altimetricos","pointForDraft":4.124789556921527},{"nameproyect":"venta y compra de equipos","pointForDraft":7.542472332656507},{"nameproyect":"SIG","pointForDraft":10.960155108391486},{"nameproyect":"Administracion de la informacion con apoyo de las bases de datos espaciales","pointForDraft":13.317177712346645}]
+                }
+            })  
+        </script>
+     
+    </section>  
+    <section> 
+         
+        <h2> Grafico proyectos empresa 1 </h2>
+        <canvas id="myChartempresa1}" width="331" height="165" class="chartjs-render-monitor" style="display: block; width: 331px; height: 165px;">
+        </canvas>
+        <script>
+            var marksData = {
+                labels:["Levantamientos Altimetricos","venta y compra de equipos","SIG","Administracion de la informacion con apoyo de las bases de datos espaciales"],
+                datasets: [
+                    {
+                        label: '# diferencia proyecto  ',
+                        data: ["4.124789556921527","7.542472332656507","10.960155108391486","13.317177712346645"],
+                        backgroundColor: ["rgba(216, 0,231, 0.4)","rgba(216, 63.75,188, 0.4)","rgba(216, 127.5,181, 0.4)","rgba(216, 191.25,200, 0.4)"],
+                        borderColor:["rgba(100,0,209,0.6)","rgba(100,63.75,180,0.6)","rgba(100,127.5,194,0.6)","rgba(100,191.25,232,0.6)"],
+                        borderWidth: 1
+                    }
+                ]
+            };     
+            var ctx = document.getElementById("myChartempresa1}");
+            var myRadarChart = new Chart(ctx, {
+                type: 'bar',
+                data: marksData,
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
+                }
+            });
+
+        
+        </script>
+     
+    </section>  
+</body>    
+</html>  

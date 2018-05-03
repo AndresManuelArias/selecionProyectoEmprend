@@ -2,9 +2,11 @@
 // @ts-check 
 const csvdata = require('csvdata'), 
 fs = require('fs'),
-selectorBusiness = require('./selectorNegocio/selectorBusiness.js');
+selectorBusiness = require('./selectorNegocio/selectorBusiness.js'),
+InformarProyectosSeleccionados = require('./views/informarProyectosSeleccionados.js');
 
-const filePath = 'baseData/proyectos empresariales - conocimiento.csv';
+const filePath = 'baseData/proyectos empresariales - conocimiento.csv',
+ graficarResultado = 'public/graficarResultado.html';
 csvdata.load(filePath, {
     delimiter: ',',
     log: true,
@@ -26,7 +28,9 @@ csvdata.load(filePath, {
         console.log("selectorBusiness.compareCompanyWithProject(averagedataCompany,averageDraft);");
         // console.log(selectorBusiness.compareCompanyWithProject(averagedataCompany,averageDraft)[1]["proyect"])//[0]["ablitiesForDraft"]);
         console.log(selectorBusiness.sumPointProyect(selectorBusiness.compareCompanyWithProject(averagedataCompany,averageDraft)));
-        let resuladoMejorNegocio = selectorBusiness.sumPointProyect(selectorBusiness.compareCompanyWithProject(averagedataCompany,averageDraft));
-        fs.writeFileSync('./baseData/resultado.json',JSON.stringify(resuladoMejorNegocio));
+        let resultadoMejorNegocio = selectorBusiness.sumPointProyect(selectorBusiness.compareCompanyWithProject(averagedataCompany,averageDraft));
+        fs.writeFileSync('./baseData/resultado.json',JSON.stringify(resultadoMejorNegocio));
+        let informarProyectosSeleccionados = new InformarProyectosSeleccionados(graficarResultado);
+        informarProyectosSeleccionados.graficar(resultadoMejorNegocio);
     });
 });
