@@ -81,7 +81,7 @@ function encapsularHTML(datosAgregados){
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>          
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
-    <script src="http://www.chartjs.org/dist/2.7.1/Chart.bundle.js"></script>   
+    <script src="https://www.chartjs.org/dist/2.7.1/Chart.bundle.js"></script>   
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>                   
     <h1> ${datosAgregados.title} </h1>
             ${datosAgregados.body} 
