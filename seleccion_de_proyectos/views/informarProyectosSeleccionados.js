@@ -105,6 +105,7 @@ function paintTableEmpresa(resultEmpresa){
             </thead>
             <tbody id="app${resultEmpresa.nameCompany.replace(/\s+/g,'')}">
                 <tr v-for="(todo,index) in todos">
+                
                     <td> {{index}}</td>
                     <td> {{ todo.nameproyect}} </td>
                     <td> {{ todo.pointForDraft}} </td>
