@@ -1,0 +1,21 @@
+{
+  "name": "seleccion_de_proyectos",
+  "version": "1.0.0",
+  "description": "este programa pretende escoger mostrar cual es el mejor proyecto de acuerdo a las habilidades del equipo o la persona",
+  "main": "ejecutarSelectorNegocio.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "seleccion",
+    "de",
+    "persona",
+    "talento",
+    "humano"
+  ],
+  "author": "Andres Manuel Arias Ariza",
+  "license": "ISC",
+  "dependencies": {
+    "csvdata": "^1.4.0"
+  }
+}
