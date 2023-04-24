@@ -16,6 +16,6 @@
   "author": "Andres Manuel Arias Ariza",
   "license": "ISC",
   "dependencies": {
-    "csvdata": "^1.4.0"
+    "csvdata": "^2.0.0"
   }
 }
